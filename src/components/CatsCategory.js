@@ -6,11 +6,10 @@ import Slider from "../container/Slider";
 import { useEffect, useState } from "react";
 
 const CatsCategory = () => {
-  const state = useSelector((state) => state.category);
-  const cats = useSelector((state) => state.cat);
-  const [categoryId, setCategoryId] = useState(null);
-
+  const state = useSelector((state) => state.cat);
   const dispatch = useDispatch();
+
+  const [categoryId, setCategoryId] = useState(null);
 
   async function getCatImages(id) {
     try {
@@ -29,7 +28,7 @@ const CatsCategory = () => {
     if (categoryId) {
       getCatImages(categoryId);
     }
-  }, [categoryId, cats?.limit]);
+  }, [categoryId, state?.limit]);
 
   useEffect(() => {
     dispatch(emptyFetchData());

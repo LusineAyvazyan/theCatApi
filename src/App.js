@@ -8,14 +8,15 @@ import { useState } from "react";
 
 function App() {
   const dispatch = useDispatch();
-  const [isCategory, setCategory] = useState(false)
+  const [isCategory, setCategory] = useState(false);
 
-  async function getCategory () {
+  async function getCategory() {
     try {
-      const res = await axios.get(process.env.REACT_APP_BASE_URL +  "categories");
-      console.log(res.data, "res");
-      if(res.data){
-        setCategory(true)
+      const res = await axios.get(
+        process.env.REACT_APP_BASE_URL + "categories"
+      );
+      if (res.data) {
+        setCategory(true);
         dispatch(fetchCategory(res.data));
       }
     } catch (error) {
@@ -28,7 +29,9 @@ function App() {
       <header className="App-header">
         {!isCategory ? (
           <Button text="Get Category" onClick={getCategory} />
-        ) :  <CatsCategory /> }
+        ) : (
+          <CatsCategory />
+        )}
       </header>
     </div>
   );

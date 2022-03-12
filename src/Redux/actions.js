@@ -1,26 +1,17 @@
-
-import { FETCH_DATA, ERROR, FETCH_CATEGORY, LOADING, LIMIT_IMAGE, EMPTY_FETCH_DATA } from './types'
-
-
-export const isLoading = (bool) => ({
-  type: LOADING,
-  bool
-});
-
-export const isError = (bool) => ({
-  type: ERROR,
-  bool
-});
+import {
+  FETCH_DATA,
+  FETCH_CATEGORY,
+  LIMIT_IMAGE,
+  EMPTY_FETCH_DATA,
+} from "./types";
 
 export const limitImage = () => ({
   type: LIMIT_IMAGE,
-  
 });
-
 
 export const fetchCategory = (data) => ({
   type: FETCH_CATEGORY,
-  data
+  data,
 });
 
 export const fetchData = (data) => ({
@@ -28,9 +19,6 @@ export const fetchData = (data) => ({
   data,
 });
 
-
 export const emptyFetchData = () => ({
   type: EMPTY_FETCH_DATA,
 });
-
-

@@ -4,15 +4,22 @@ import {
   ERROR,
   LIMIT_IMAGE,
   EMPTY_FETCH_DATA,
+  FETCH_CATEGORY,
 } from "../types";
 
 const initialState = {
+  category: {},
   cat: [],
   limit: 10,
 };
 
 export default function cat(state = initialState, action) {
   switch (action.type) {
+    case FETCH_CATEGORY:
+      return {
+        ...state,
+        category: action.data,
+      };
     case FETCH_DATA:
       return {
         ...state,
@@ -29,18 +36,6 @@ export default function cat(state = initialState, action) {
         limit: state.limit + 10,
       };
     }
-    case LOADING:
-      return {
-        ...state,
-        error: false,
-        loading: true,
-      };
-    case ERROR:
-      return {
-        ...state,
-        error: true,
-        loading: false,
-      };
     default:
       return state;
   }
